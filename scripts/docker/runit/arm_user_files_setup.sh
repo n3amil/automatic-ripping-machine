@@ -43,7 +43,6 @@ for dir in $SUBDIRS ; do
         echo "Creating dir: $thisDir"
         mkdir -p "$thisDir"
     fi
-    chown -R arm:arm "$thisDir"
 done
 
     ##### Setup ARM-specific config files if not found
@@ -57,9 +56,6 @@ done
             cp --no-clobber "/opt/arm/setup/${conf}" "${thisConf}"
         fi
     done
-    chown -R arm:arm /etc/arm/
-    
     # abcde.conf is expected in /etc by the abcde installation
     cp --no-clobber "/opt/arm/setup/.abcde.conf" "/etc/.abcde.conf"
     ln -sf /etc/.abcde.conf /etc/arm/config/abcde.conf
-    chown arm:arm "/etc/.abcde.conf" "/etc/arm/config/abcde.conf"
